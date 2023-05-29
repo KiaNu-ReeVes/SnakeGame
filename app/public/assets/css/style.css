@@ -52,7 +52,32 @@ body {
     transition: all ease 1s;
     background-color: #353535;
 }
+.button {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: white;
+    background-color: #171717;
+    filter: drop-shadow(0 0 10px black);
+    margin-left: 10px;
+}
+.button2 {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    background-color: #ff5d5d;
+    filter: drop-shadow(0 0 10px black);
+    margin-left: 10px;
+    margin-top: 15px;
+}
 
+.button2:hover {
+    transition: all ease 1s;
+    background-color: #353535;
+}
 /* Login Page Styles */
 
 
@@ -78,4 +103,33 @@ body {
     margin-left: 10px;
     margin-top: 15px;
     cursor: pointer;
+}
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+table th,
+table td {
+    padding: 12px 15px;
+}
+table tbody tr {
+    border-bottom: 1px solid #dddddd1f;
+}
+
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+table tbody tr:hover {
+    font-weight: bold;
+    color: #009879;
 }

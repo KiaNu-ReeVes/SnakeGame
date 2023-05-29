@@ -44,4 +44,25 @@ router.post('/api/auth/login', function(req, res) {
    });
 });
 
+router.post('/api/auth/sethigh', function(req, res) {
+  const SendedScore = parseInt(req.body.score)
+  const cookie = req.cookies
+  try {
+    const userid = jwt.verify(cookie.userid, 'secrettoken23')
+    const userInfo = userid.userid
+    connection.query('SELECT * FROM users WHERE username = ?', [userInfo.username], function(err, response){
+        if (response[0].password === userInfo.password) {
+          if (SendedScore > parseInt(response[0].high_score)) {
+            connection.query(`UPDATE users SET high_score = '${SendedScore}' WHERE username = '${response[0].username}'`)
+            return res.json({success: true, message: 'You set a new record'})
+          }
+        } else {
+          return res.json({success: false})
+        }
+    });
+  } catch(err) {
+    return res.json({success: false})
+  }
+});
+
 module.exports = router

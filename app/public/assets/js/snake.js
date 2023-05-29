@@ -48,6 +48,9 @@ $('[name="button"]').on('click', function() {
     if (this.role === "pause") {
         alert('Game Paused');
     }
+    if (this.role === "link") {
+        window.location.href = this.url
+    }
 });
 $('[name="button_arows"]').on('click', function() {
     if (this.role) {
@@ -165,6 +168,9 @@ function Snake() {
     this.checkCollision = function() {
         for (let i = 0; i < this.tail.length; i++) {
             if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+                $.post('/api/auth/sethigh', {score: score}).done(function(res){
+                    alert(res.message)
+                });
                 this.total = 0;
                 score = 0;
                 this.tail = [];

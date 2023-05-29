@@ -55,6 +55,7 @@ module.exports = class Application {
           console.log(userid)
           const userInfo = userid.userid
           connection.query('SELECT * FROM users WHERE username = ?', [userInfo.username], function(err, response){
+            if (!response[0]) {return res.redirect('/')}
               if (response[0].password === userInfo.password) {
                   return res.render('index')
               } else {
@@ -69,7 +70,7 @@ module.exports = class Application {
     
       app.get('/leaderboard', function(req, res) {
         connection.query('SELECT * FROM users ORDER By high_score DESC', function(err, response){
-          return res.json(response)
+          return res.render('leaderboard', {scores: response})
         })
       });
     }
