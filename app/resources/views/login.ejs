@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Snake Game - Login Page</title>
+</head>
+    <body>
+        <div class="game">
+            <form class="login_form">
+                <div class="alert" style="font-size: larger;font-weight: bolder;margin: 20px 0px;color: white;">
+                    <!-- Hi, Welcome -->
+                </div>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <br>
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+    <script>
+        function load() {
+            $('form.login_form').on('submit', function(e) {
+                e.preventDefault();
+                $.post('/api/auth/login', {
+                    username: $('[name="username"]').val(),
+                    password: $('[name="password"]').val()
+                }).done(function(response){
+                    $('.alert').text(response.message)
+                    if (response.success == true) {
+                        window.location.href = '/play'
+                    }
+                })
+            });
+        }
+        window.addEventListener('load', function(){
+            load()
+        })
+    </script>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/snake.js"></script>
+</html>

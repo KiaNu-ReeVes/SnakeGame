@@ -1,0 +1,81 @@
+* {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+body {
+    background-attachment: fixed;
+    background: linear-gradient(180deg, rgba(62,119,134,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.game {
+    width: 540px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+.game > button {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: white;
+    background-color: #171717;
+    filter: drop-shadow(0 0 10px black);
+    margin-left: 10px;
+}
+
+.game > .arrows > button {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    background-color: #ff5d5d;
+    filter: drop-shadow(0 0 10px black);
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.game > .arrows > button > img {
+    width: 50px;
+}
+
+.game > button:hover {
+    transition: all ease 1s;
+    background-color: #353535;
+}
+
+/* Login Page Styles */
+
+
+.login_form > input {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: white;
+    background-color: #171717;
+    filter: drop-shadow(0 0 10px black);
+    margin-top: 20px;
+}
+
+.login_form > button {
+    border: 0;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    background-color: #ff5d5d;
+    filter: drop-shadow(0 0 10px black);
+    margin-left: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
